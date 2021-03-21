@@ -1,3 +1,9 @@
 # AGGCN
-基于[模板](https://github.com/DevilExileSu/pytorch-template)编写
+基于[模板](https://github.com/DevilExileSu/pytorch-template)编写.
+
 部分仍采用[原始代码](https://github.com/Cartus/AGGCN)
+
+
+```python 
+python train.py --batch_size 50 --epochs 150
+```

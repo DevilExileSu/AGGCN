@@ -1,0 +1,53 @@
+2021-03-19 16:27:33,371 [DEBUG]: 
+Running with the following configs:
+	train_data : datasets/train.json
+	valid_data : datasets/test.json
+	vocab : datasets/vocab.pkl
+	embed_matrix : datasets/embedding.npy
+	lower : True
+	batch_size : 50
+	word_dropout : 0.04
+	h_dim : 360
+	emb_dim : 300
+	pos_dim : 30
+	n_mlp_layers : 1
+	n_blocks : 2
+	n_heads : 3
+	topn : 10000000000.0
+	rnn : True
+	rnn_dim : 300
+	n_rnn_layers : 1
+	rnn_dropout : 0.5
+	n_sub_layers_first : 2
+	n_sub_layers_second : 4
+	dropout : 0.3
+	emb_dropout : 0.3
+	self_loop : True
+	pooling : max
+	lr : 0.5
+	optimizer : sgd
+	conv_l2 : 0
+	pooling_l2 : 0.002
+	lr_decay : 0.9
+	lr_decay_patience : 6
+	epochs : 150
+	save_dir : ./saved_models
+	save_epochs : 5
+	early_stop : True
+	patience : 20
+	resume : True
+	resume_path : ./saved_models/model_best.pt
+	log_step : 20
+	max_grad_norm : 5.0
+	cuda : True
+	config_file : ./config.json
+	seed : 1234
+
+
+2021-03-19 16:27:33,371 [DEBUG]: Config saved to file ./config.json
+2021-03-19 16:27:33,405 [DEBUG]: -----------read data-----------
+2021-03-19 16:27:33,473 [DEBUG]: datasets/train.json has data 8000
+2021-03-19 16:27:33,652 [DEBUG]: 160 batches created for datasets/train.json
+2021-03-19 16:27:33,652 [DEBUG]: -----------read data-----------
+2021-03-19 16:27:33,673 [DEBUG]: datasets/test.json has data 2717
+2021-03-19 16:27:33,721 [DEBUG]: 55 batches created for datasets/test.json

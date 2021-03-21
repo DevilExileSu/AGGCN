@@ -1,0 +1,97 @@
+2021-03-19 16:27:35,404 [INFO]: GCNClassifier(
+  (aggcn): AGGCN(
+    (embedding): Embeddings(
+      (emb): Embedding(20986, 300)
+      (pos_emb): Embedding(48, 30)
+      (dropout): Dropout(p=0.3, inplace=False)
+    )
+    (rnn_dropout): Dropout(p=0.5, inplace=False)
+    (fc_rnn): Linear(in_features=330, out_features=300, bias=True)
+    (rnn_eoncder): LSTM(300, 300, batch_first=True, dropout=0.5, bidirectional=True)
+    (fc): Linear(in_features=600, out_features=360, bias=True)
+    (dropout): Dropout(p=0.3, inplace=False)
+    (blocks): ModuleList(
+      (0): Block(
+        (densely_connect_layer_first): SingleDCGCN(
+          (dropout): Dropout(p=0.3, inplace=False)
+          (sub_layers): ModuleList(
+            (0): Linear(in_features=360, out_features=180, bias=True)
+            (1): Linear(in_features=540, out_features=180, bias=True)
+          )
+          (linear_combination_layer): LinearCombinationLayer(
+            (linear): Linear(in_features=360, out_features=360, bias=True)
+          )
+        )
+        (densely_connect_layer_second): SingleDCGCN(
+          (dropout): Dropout(p=0.3, inplace=False)
+          (sub_layers): ModuleList(
+            (0): Linear(in_features=360, out_features=90, bias=True)
+            (1): Linear(in_features=450, out_features=90, bias=True)
+            (2): Linear(in_features=540, out_features=90, bias=True)
+            (3): Linear(in_features=630, out_features=90, bias=True)
+          )
+          (linear_combination_layer): LinearCombinationLayer(
+            (linear): Linear(in_features=360, out_features=360, bias=True)
+          )
+        )
+      )
+      (1): Block(
+        (attention_guide_layer): MultiHeadAttentionLayer(
+          (fc_q): Linear(in_features=360, out_features=360, bias=True)
+          (fc_k): Linear(in_features=360, out_features=360, bias=True)
+          (fc_v): Linear(in_features=360, out_features=360, bias=True)
+          (dropout): Dropout(p=0.3, inplace=False)
+        )
+        (densely_connect_layer_first): MultiDCGCN(
+          (dropout): Dropout(p=0.3, inplace=False)
+          (sub_layers): ModuleList(
+            (0): Linear(in_features=360, out_features=180, bias=True)
+            (1): Linear(in_features=540, out_features=180, bias=True)
+            (2): Linear(in_features=360, out_features=180, bias=True)
+            (3): Linear(in_features=540, out_features=180, bias=True)
+            (4): Linear(in_features=360, out_features=180, bias=True)
+            (5): Linear(in_features=540, out_features=180, bias=True)
+          )
+          (linear_combination_layer): LinearCombinationLayer(
+            (linear): Linear(in_features=1080, out_features=360, bias=True)
+          )
+        )
+        (densely_connect_layer_second): MultiDCGCN(
+          (dropout): Dropout(p=0.3, inplace=False)
+          (sub_layers): ModuleList(
+            (0): Linear(in_features=360, out_features=90, bias=True)
+            (1): Linear(in_features=450, out_features=90, bias=True)
+            (2): Linear(in_features=540, out_features=90, bias=True)
+            (3): Linear(in_features=630, out_features=90, bias=True)
+            (4): Linear(in_features=360, out_features=90, bias=True)
+            (5): Linear(in_features=450, out_features=90, bias=True)
+            (6): Linear(in_features=540, out_features=90, bias=True)
+            (7): Linear(in_features=630, out_features=90, bias=True)
+            (8): Linear(in_features=360, out_features=90, bias=True)
+            (9): Linear(in_features=450, out_features=90, bias=True)
+            (10): Linear(in_features=540, out_features=90, bias=True)
+            (11): Linear(in_features=630, out_features=90, bias=True)
+          )
+          (linear_combination_layer): LinearCombinationLayer(
+            (linear): Linear(in_features=1080, out_features=360, bias=True)
+          )
+        )
+      )
+    )
+    (attention_guide_layer): MultiHeadAttentionLayer(
+      (fc_q): Linear(in_features=360, out_features=360, bias=True)
+      (fc_k): Linear(in_features=360, out_features=360, bias=True)
+      (fc_v): Linear(in_features=360, out_features=360, bias=True)
+      (dropout): Dropout(p=0.3, inplace=False)
+    )
+    (aggregate_W): Linear(in_features=1440, out_features=360, bias=True)
+  )
+  (feed_forward): FeedForward(
+    (out_mlp): Sequential(
+      (0): Linear(in_features=1080, out_features=360, bias=True)
+      (1): ReLU()
+    )
+  )
+  (classifier): Linear(in_features=360, out_features=10, bias=True)
+)
+Trainable parameters: 11761030

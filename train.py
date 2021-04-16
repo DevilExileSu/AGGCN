@@ -5,7 +5,7 @@ import torch.nn as nn
 from torch.nn import functional as F
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from config import Config,Logger
-from utils.util import get_optimizer
+from utils.util import get_optimizer, initialize_weights
 from utils.vocab import Vocab
 from data import SemevalDataLoader
 from model.model import GCNClassifier
@@ -120,6 +120,7 @@ criterion = nn.CrossEntropyLoss()
 
 
 #trainer 
+model.apply(initialize_weights)
 trainer = GCNTrainer(model=model, optimizer=optimizer, criterion=criterion, cfg=cfg.config, logger=logger, 
                     data_loader=data_loader, valid_data_loader=valid_data_loader, lr_scheduler=lr_scheduler)
 
